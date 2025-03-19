@@ -76,6 +76,7 @@ pub enum ExtensionConfig {
     Builtin {
         /// The name used to identify this extension
         name: String,
+        display_name: Option<String>, // needed for the UI
         timeout: Option<u64>,
     },
 }
@@ -84,6 +85,7 @@ impl Default for ExtensionConfig {
     fn default() -> Self {
         Self::Builtin {
             name: config::DEFAULT_EXTENSION.to_string(),
+            display_name: Some(config::DEFAULT_DISPLAY_NAME.to_string()),
             timeout: Some(config::DEFAULT_EXTENSION_TIMEOUT),
         }
     }
